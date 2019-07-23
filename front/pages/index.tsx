@@ -35,7 +35,7 @@ const Index: React.FunctionComponent = () => {
         setTimeout(handleType, typingSpeed);
     });
 
-    const test = ():JSX.Element => {
+    const qrResult = ():JSX.Element => {
         if(qr.value !== ""){
             return (<p>QR Result : {qr.value}</p>);
         }
@@ -45,7 +45,7 @@ const Index: React.FunctionComponent = () => {
             <h2 className="ityped" style={{ display: 'inline-block' }}>{text}</h2>
 			<span id="cursor"></span>
 
-            { test() }
+            { qrResult() }
         </>
     );
 };
