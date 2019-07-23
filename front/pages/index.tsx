@@ -10,6 +10,7 @@ const Index: React.FunctionComponent = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const typingSpeed = 150;
+    const qr = useSelector(state => state.qr);
 
     const handleType = () => {
         const dataText = ['YapTV public document...', '클라이언트 개발 환경 : React '];
@@ -34,10 +35,17 @@ const Index: React.FunctionComponent = () => {
         setTimeout(handleType, typingSpeed);
     });
 
+    const test = ():JSX.Element => {
+        if(qr.value !== ""){
+            return (<p>QR Result : {qr.value}</p>);
+        }
+    }
     return (
         <>
             <h2 className="ityped" style={{ display: 'inline-block' }}>{text}</h2>
 			<span id="cursor"></span>
+
+            { test() }
         </>
     );
 };

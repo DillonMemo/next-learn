@@ -45,8 +45,11 @@ const App = ({ Component, store }) => {
                                     <li className="chapter">
                                         <Link href="/Board"><a>게시판</a></Link>
                                     </li>
-                                    <li className="chapter">
+                                    {/* <li className="chapter">
                                         <Link href="/todo"><a>To Do</a></Link>
+                                    </li> */}
+                                    <li className="chapter">
+                                        <Link href="/QR/reader"><a>QR Demo</a></Link>
                                     </li>
                                 </ul>
                             </li>
