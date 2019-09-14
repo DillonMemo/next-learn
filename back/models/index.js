@@ -1,17 +1,15 @@
-const Sequelize = require('sequelize');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config')[env];
-const db = {};
+const env = process.env.NODE_ENV || "development";
+const dev = "test";
+const config = require("../config/config")[dev];
+const db = require("mariadb/callback");
 
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
+const conn = db.createConnection(config);
+conn.connect(err => {
+  if (err) {
+    console.log("not connected due to error: " + err);
+  } else {
+    console.log("connected! connection id is " + conn.threadId);
   }
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = conn;

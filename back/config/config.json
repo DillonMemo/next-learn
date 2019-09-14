@@ -8,12 +8,10 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "root",
+    "user": "root",
     "password": "123456",
-    "database": "yaptv_dev",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "database": "tempolary",
+    "host": "127.0.0.1"
   },
   "production": {
     "username": "root",
