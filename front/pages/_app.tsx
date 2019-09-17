@@ -62,6 +62,16 @@ const App = ({ Component, store }) => {
                       <a>Test API</a>
                     </Link>
                   </li>
+                  <li className="chapter" style={{ marginTop: 10 }}>
+                    <b>라이브러리</b>
+                    <ul className="articles">
+                      <li className="chapter">
+                        <Link href="/lib/usingd3">
+                          <a>D3 Chart</a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li className="divider"></li>

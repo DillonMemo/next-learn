@@ -17,7 +17,7 @@ const Employee: NextPage<IProps> = props => {
   const getEmployee = async () => {
     const result = await axios({
       method: "GET",
-      url: "http://localhost:5000/api/employee"
+      url: "http://1.234.180.43:8008/api/demo.php"
     });
 
     console.log(result);
