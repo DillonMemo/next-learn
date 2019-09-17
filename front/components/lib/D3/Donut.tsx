@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import * as d3 from "d3";
-import { select, event } from "d3-selection";
-import Faker from "faker";
 import { produce } from "immer";
 
 type TData = {
@@ -20,7 +18,6 @@ const Donut = () => {
     fixRadius: Radius + 10,
     basicRadius: Radius
   });
-  //   const outerRadius = () => { returnfixRadius: 110, basicRadius: 100 };
   const [data, setData] = useState<TData[]>([
     {
       key: 1,
@@ -91,6 +88,7 @@ const Donut = () => {
       })
     );
 
+    // tooltip 핸들러
     const total = d3.sum(data.map(d => d.value));
     const percent = Math.round((1000 * d.data.value) / total) / 10;
     console.log(total, percent);
@@ -106,6 +104,7 @@ const Donut = () => {
       .style("opacity", 1);
   };
   const handleMouseMove = () => {
+    // tooltip 핸들러
     d3.select("#tooltip")
       .style("top", (window.event as MouseEvent).offsetY + 152 + "px")
       .style("left", (window.event as MouseEvent).offsetX + 230 + "px");
@@ -122,6 +121,7 @@ const Donut = () => {
       })
     );
 
+    // tooltip 핸들러
     d3.select("#tooltip")
       .style("display", "none")
       .style("opacity", 0);
