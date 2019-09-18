@@ -13,7 +13,7 @@ type TData = {
   };
 };
 
-const Donut = () => {
+const Pie = () => {
   const outerRadius = (Radius = 120) => ({
     fixRadius: Radius + 10,
     basicRadius: Radius
@@ -93,16 +93,16 @@ const Donut = () => {
     const percent = Math.round((1000 * d.data.value) / total) / 10;
     console.log(total, percent);
 
-    d3.select("#DonutTooltip")
+    d3.select("#PieTooltip")
       .select(".percent")
       .html(`${percent}%`);
-    d3.select("#DonutTooltip")
+    d3.select("#PieTooltip")
       .style("display", "block")
       .style("opacity", 1);
   };
   const handleMouseMove = () => {
     // tooltip 핸들러
-    d3.select("#DonutTooltip")
+    d3.select("#PieTooltip")
       .style("top", (window.event as MouseEvent).pageY + "px")
       .style("left", (window.event as MouseEvent).pageX - 225 + "px");
   };
@@ -119,7 +119,7 @@ const Donut = () => {
     );
 
     // tooltip 핸들러
-    d3.select("#DonutTooltip")
+    d3.select("#PieTooltip")
       .style("display", "none")
       .style("opacity", 0);
   };
@@ -132,7 +132,7 @@ const Donut = () => {
             const path = d3
               .arc<any, typeof d>()
               .outerRadius(d.data.arc.outerRadius)
-              .innerRadius(70)
+              .innerRadius(0)
               .padAngle(0);
 
             // 백분율 계산
@@ -167,7 +167,7 @@ const Donut = () => {
         </g>
       </svg>
       <div
-        id="DonutTooltip"
+        id="PieTooltip"
         style={{ position: "absolute", display: "none", opacity: 0 }}>
         <div
           className="percent"
@@ -181,4 +181,4 @@ const Donut = () => {
   );
 };
 
-export default Donut;
+export default Pie;
