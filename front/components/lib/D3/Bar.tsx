@@ -133,7 +133,6 @@ const Bar = () => {
     setData(
       produce(draft => {
         draft.map((section: TData) => {
-          console.log(section.arc.isTooltip);
           section.arc.isTooltip = section.key == d.key ? true : false;
           section.svg.fill.opacity = section.key == d.key ? 1 : 0.5;
         });
@@ -143,14 +142,14 @@ const Bar = () => {
     console.log(d3.select(".BarTooltip").select(".value"));
     d3.select(".BarTooltip")
       .select(".value")
-      .html(`${d.value}%`);
+      .html(`${d.value}`);
     d3.select(".BarTooltip")
       .style("display", "block")
       .style("opacity", 1);
   };
 
   const handleMouseMove = (d: TData) => {
-    console.log(d3.select(NODE.current));
+    // console.log(d3.select(NODE.current));
     d3.select(".BarTooltip")
       .style("top", (window.event as MouseEvent).pageY + 250 + "px")
       .style("left", (window.event as MouseEvent).pageX - 225 + "px");
@@ -166,7 +165,7 @@ const Bar = () => {
       })
     );
 
-    d3.select("#BarTooltip")
+    d3.select(".BarTooltip")
       .style("display", "none")
       .style("opacity", 0);
   };

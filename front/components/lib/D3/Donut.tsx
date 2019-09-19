@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import * as d3 from "d3";
+import { event as currentEvent } from "d3";
 import { produce } from "immer";
 
 type TData = {
@@ -100,11 +101,12 @@ const Donut = () => {
       .style("display", "block")
       .style("opacity", 1);
   };
-  const handleMouseMove = () => {
+  const handleMouseMove = d => {
+    console.log(currentEvent);
     // tooltip 핸들러
     d3.select("#DonutTooltip")
-      .style("top", (window.event as MouseEvent).pageY + "px")
-      .style("left", (window.event as MouseEvent).pageX - 225 + "px");
+      .style("top", (window.event as MouseEvent | any).layerY + 50 + "px")
+      .style("left", (window.event as MouseEvent | any).layerX + "px");
   };
 
   const handleMouseOut = (d: d3.PieArcDatum<TData>) => {
@@ -148,7 +150,7 @@ const Donut = () => {
                   d={path(d)}
                   fill={`rgba(${d.data.svg.fill.r}, ${d.data.svg.fill.g}, ${d.data.svg.fill.b}, ${d.data.svg.fill.opacity})`}
                   onMouseOver={() => handleMouseOver(d)}
-                  onMouseMove={handleMouseMove}
+                  onMouseMove={() => handleMouseMove(d)}
                   onMouseOut={() => handleMouseOut(d)}
                   style={{ cursor: "pointer" }}
                 />
