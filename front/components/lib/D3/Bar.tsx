@@ -109,24 +109,6 @@ const Bar = () => {
       .attr("class", "x axis")
       .call(xAxis)
       .style("transform", `translate(${0}, ${height}px)`);
-
-    // node
-    //   .selectAll("bar")
-    //   .data(data)
-    //   .enter()
-    //   .append("rect")
-    //   .attr("class", "bar")
-    //   .attr("x", d => x(d.label))
-    //   .attr("width", x.bandwidth())
-    //   .attr("y", d => y(d.value))
-    //   .attr("height", d => height - y(d.value))
-    //   .attr(
-    //     "fill",
-    //     d =>
-    //       `rgba(${d.svg.fill.r}, ${d.svg.fill.g}, ${d.svg.fill.b}, ${d.svg.fill.opacity})`
-    //   )
-    //   .style("cursor", "pointer")
-    //   .on("mouseover", (d: TData) => handleMouseOver(d));
   };
 
   const handleMouseOver = (d: TData) => {

@@ -14,6 +14,7 @@ type TData = {
 };
 
 const Pie = () => {
+  const isDonut = false;
   const outerRadius = (Radius = 120) => ({
     fixRadius: Radius + 10,
     basicRadius: Radius
@@ -22,10 +23,13 @@ const Pie = () => {
     {
       key: 1,
       value: 50,
+      // 색상
       svg: { fill: d3.rgb(d3.schemePaired[0]) },
       arc: {
+        // 바깥원형 사이즈 설정
         outerRadius: outerRadius().basicRadius,
         cornerRadius: 10,
+        // 툴팁 보기
         isTooltip: false
       }
     },
@@ -72,6 +76,7 @@ const Pie = () => {
   ]);
   const [width, height] = [300, 300];
 
+  // 차트생성
   const pie = d3.pie<TData>().value(d => d.value)(data);
 
   const handleMouseOver = (d: d3.PieArcDatum<TData>) => {
@@ -132,7 +137,7 @@ const Pie = () => {
             const path = d3
               .arc<any, typeof d>()
               .outerRadius(d.data.arc.outerRadius)
-              .innerRadius(0)
+              .innerRadius(isDonut ? 70 : 0)
               .padAngle(0);
 
             // 백분율 계산

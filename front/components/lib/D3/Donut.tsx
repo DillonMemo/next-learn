@@ -15,6 +15,7 @@ type TData = {
 };
 
 const Donut = () => {
+  const isDonut = true;
   const outerRadius = (Radius = 120) => ({
     fixRadius: Radius + 10,
     basicRadius: Radius
@@ -76,6 +77,14 @@ const Donut = () => {
   const pie = d3.pie<TData>().value(d => d.value)(data);
 
   const handleMouseOver = (d: d3.PieArcDatum<TData>) => {
+    /**
+     * var x = "1"
+     * var y = "2"
+     * var temp = x
+     * x = y
+     * y = temp
+     * immer 사용
+     */
     setData(
       produce(draft => {
         draft.map((section: TData) => {
@@ -134,7 +143,7 @@ const Donut = () => {
             const path = d3
               .arc<any, typeof d>()
               .outerRadius(d.data.arc.outerRadius)
-              .innerRadius(70)
+              .innerRadius(isDonut ? 70 : 0)
               .padAngle(0);
 
             // 백분율 계산
