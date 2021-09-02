@@ -31,7 +31,7 @@
     "eslint-plugin-import": "^2.18.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "immer": "^4.0.0",
+    "immer": "^9.0.6",
     "next-compose-plugins": "^2.2.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "node-sass": "^4.12.0",
